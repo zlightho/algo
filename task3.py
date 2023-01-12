@@ -18,8 +18,6 @@ def ConquestCampaign(N: int, M: int, L: int, battalion: List[int]) -> int:
     days = 0
     # Initialize counter captured points
     captured = 0
-    # Initialize counter remaining points
-    remaining = L
     # Processing the first landing
     for i in range(0, L * 2, 2):
         x, y = battalion[i] - 1, battalion[i + 1] - 1
@@ -40,24 +38,15 @@ def ConquestCampaign(N: int, M: int, L: int, battalion: List[int]) -> int:
                 # Сheck that it has not been captured yet
                 if captured_territory[x + dx][y + dy]:
                     continue
-                # Сheck that there are more points to capture
-                if remaining <= 0:
-                    continue
                 # Mark the point as captured
                 captured_territory[x + dx][y + dy] = True
                 # Increasing the counter of captured points
                 captured += 1
-                # Reducing the number of points to capture
-                remaining -= 1
-                # if all points are captured, then we exit the loop
-                if remaining <= 0:
-                    break
-                # if no new points have been captured, then we exit the loop
-                if captured == 0:
-                    break
-                # Saving the number of captured points for a given day
-                days += 1
                 new_queue.append((x + dx, y + dy))
                 # Starting a new loop with a new array
         queue = new_queue
-    return days
+
+    return days + 1
+
+
+print(ConquestCampaign(3, 4, 3, [2, 2, 2, 2, 3, 4]))
