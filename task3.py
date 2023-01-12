@@ -47,6 +47,3 @@ def ConquestCampaign(N: int, M: int, L: int, battalion: List[int]) -> int:
         queue = new_queue
 
     return days + 1
-
-
-print(ConquestCampaign(3, 4, 3, [2, 2, 2, 2, 3, 4]))
