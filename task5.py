@@ -18,6 +18,7 @@ def selectionSort(arr: List):
     for i in range(len(arr)):
         smallest = find_smallest(arr)
         new_arr.append(arr.pop(smallest))
+        i+=1
     return new_arr
 
 
@@ -35,7 +36,7 @@ def SynchronizingTables(N: int, ids: List[int], salary: List[int]):
     ordered_salary = []
     i = 0
     # Fills the dictionary with sorted values
-    while i < len(sort_number):
+    while i < len(range(N)):
         number_salary_dict[sort_number[i]] = sort_salary[i]
         i += 1
 
