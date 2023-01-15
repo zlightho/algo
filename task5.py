@@ -21,29 +21,29 @@ def selectionSort(arr: List):
     return new_arr
 
 
-def SynchronizingTables(N: int, employee_numbers: List[int], salaries: List[int]):
+def SynchronizingTables(N: int, ids: List[int], salary: List[int]):
     """Gets the length of both arrays by the parameter N.
     The ids parameter is an array containing employee numbers,
-    the salary parameter is an array containing salaries.
-    The function returns an array containing the reordered salaries."""
-    number_salaries_dict = {}
-    copy_employee_numbers = employee_numbers[:]
-    copy_employee_salaries = salaries[:]
+    the salary parameter is an array containing salary.
+    The function returns an array containing the reordered salary."""
+    number_salary_dict = {}
+    copy_ids = ids[:]
+    copy_employee_salary = salary[:]
     # Copy both lists
-    sort_salaries = selectionSort(copy_employee_salaries)
-    sort_number = selectionSort(copy_employee_numbers)
-    ordered_salaries = []
+    sort_salary = selectionSort(copy_employee_salary)
+    sort_number = selectionSort(copy_ids)
+    ordered_salary = []
     i = 0
     # Fills the dictionary with sorted values
     while i < len(sort_number):
-        number_salaries_dict[sort_number[i]] = sort_salaries[i]
+        number_salary_dict[sort_number[i]] = sort_salary[i]
         i += 1
 
     # Searches from the list of numbers for a match in the dictionary by key,
-    # and adds it to the ordered list of salaries
-    for i in range(len(employee_numbers)):
-        for key, value in number_salaries_dict.items():
-            if employee_numbers[i] == key:
-                ordered_salaries.append(value)
+    # and adds it to the ordered list of salary
+    for i in range(len(ids)):
+        for key, value in number_salary_dict.items():
+            if ids[i] == key:
+                ordered_salary.append(value)
 
-    return ordered_salaries
+    return ordered_salary
