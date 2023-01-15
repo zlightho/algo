@@ -1,4 +1,6 @@
-def find_smallest(arr):
+from typing import List
+
+def find_smallest(arr: List):
     """Get array and return index of the smallest element"""
     smallest = arr[0]
     smallest_index = 0
@@ -10,7 +12,7 @@ def find_smallest(arr):
     return smallest_index
 
 
-def selectionSort(arr):
+def selectionSort(arr: List):
     """Get array and return sorted array"""
     new_arr = []
     for i in range(len(arr)):
@@ -19,7 +21,7 @@ def selectionSort(arr):
     return new_arr
 
 
-def recover_salaries(employee_numbers, salaries, N):
+def SynchronizingTables(N: int, employee_numbers: List[int], salaries: List[int]):
     """Gets the length of both arrays by the parameter N.
     The ids parameter is an array containing employee numbers,
     the salary parameter is an array containing salaries.
