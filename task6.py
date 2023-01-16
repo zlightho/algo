@@ -7,14 +7,14 @@ def PatternUnlock(N: int, hits: List[int]):
     point numbers in the range from 1 to 9.
     And return length of the , without '0' """
     dist = 0
-    for i in range(0, N-1):
+    for i in range(0, N-2):
         tmp = hits[i]
         next = hits[i+1]
         if (
             ((tmp == 6 or tmp == 4 or tmp == 7 or tmp == 9) and next == 2)
             or ((tmp == 1 or tmp == 3) and (next == 5 or next == 8))
             or ((tmp == 5 or tmp == 8) and (next == 1 or next == 3))
-            or (tmp == 2 and (next == 1 or next == 3 or next == 5 or next == 8))
+            or (tmp == 2 and (next == 6 or next == 9 or next == 4 or next == 7))
         ):
             dist += 1.4142135623730951
         else:
@@ -25,7 +25,7 @@ def PatternUnlock(N: int, hits: List[int]):
         ((tmp == 6 or tmp == 4 or tmp == 7 or tmp == 9) and next == 2)
         or ((tmp == 1 or tmp == 3) and (next == 5 or next == 8))
         or ((tmp == 5 or tmp == 8) and (next == 1 or next == 3))
-        or (tmp == 2 and (next == 1 or next == 3 or next == 5 or next == 8))
+        or (tmp == 2 and (next == 6 or next == 9 or next == 4 or next == 7))
     ):
         dist += 1.4142135623730951
     else:
