@@ -38,5 +38,3 @@ def PatternUnlock(N: int, hits: List[int]):
             continue
         final_dist += i
     return final_dist
-
-print(PatternUnlock(3, [2,1,9]))
