@@ -31,3 +31,5 @@ def MadMax(N: int, Tele: List[int]) -> List[int]:
         impulse_list[i], impulse_list[i+1] = impulse_list[i+1], impulse_list[i]
     impulse_list[N-2], impulse_list[N-1] = impulse_list[N-1], impulse_list[N-2]
     return impulse_list
+
+print(MadMax(7, [1,2,3,4,5,6,7,8,9]))

@@ -34,9 +34,9 @@ def PatternUnlock(N: int, hits: List[int]):
     str_dist = str(rounded_x)
     final_dist = ''
     for i in str_dist:
-        if i == 0 or i == '.':
+        if i == '0' or i == '.':
             continue
-        else:
-            final_dist += i
+        final_dist += i
     return final_dist
 
+print(PatternUnlock(3, [2,1,9]))
