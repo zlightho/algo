@@ -10,5 +10,5 @@ def odometer(oksana: List[int]) -> int:
             current_speed = oksana[i]
             current_total_time = oksana[i+1]
             movement_time = current_total_time - oksana[i-1]
-            distance = distance + current_speed * movement_time
+            distance += current_speed * movement_time
     return distance
