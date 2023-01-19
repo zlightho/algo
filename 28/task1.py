@@ -35,15 +35,13 @@ def wrap_text(text, width):
 
 def find_substr(str1:str, substr:str):
     """Get string and substring, return 1 if substr in str == True, else 0"""
-    for index_1 in range(len(str1) - len(substr) + 1):
-        for index_2 in range(len(substr)):
-            if substr[index_2] != str1[index_1 + index_2]:
-                break
-            if (substr[index_2] == str1[index_1 + index_2]) and (
-                index_2 == len(substr) - 1
-            ):
-                return 1
+    words = str1.split(" ")
+    for word in words:
+        if word == substr:
+            return 1
     return 0
+
+
 
 def WordSearch(length:int, s:str, subs:str) -> List[int]:
     """Get length of wrap, "s" as text, and subs for checking substring ir not in wraps
