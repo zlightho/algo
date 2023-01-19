@@ -1,26 +1,41 @@
 from typing import List
 
-def wrap_text(text:str, width:int)->str:
-    """Get text and width of wrap and return wrap text, 
-    1 line with wrap length"""
+def wrap_text(text, width):
     wrapped_text = ""
     current_line = ""
-    line = ""
-    for i in range(len(text)):
-        if text[i] != " ":
-            line += text[i]
-        if text[i] == " " or i == len(text)-1:
-            if len(current_line + " " + line) > width:
-                wrapped_text += current_line + "\n"
-                current_line = ""
-            current_line += " " + line
-            line = ""
-    wrapped_text += current_line
+    word = ""
+    i = 0
+    while i < len(text) or word:
+        if not word:
+            while i < len(text) and text[i] != ' ':
+                word += text[i]
+                i += 1
+            i += 1
+            if i < len(text) and text[i] == ' ':
+                i += 1
+        if len(current_line) + len(word) + (1 if current_line else 0) <= width:
+            current_line += (' ' if current_line else '') + word
+            word = ''
+        else:
+            if current_line:
+                wrapped_text += current_line + '\n'
+                current_line = ''
+                continue
+            else:
+                for j in range(0, len(word), width):
+                    wrapped_text += word[j:j + width]
+                    if j + width < len(word):
+                        wrapped_text += '\n'
+                word = ''
+    current_line += word
+    if current_line:
+        wrapped_text += current_line
     return wrapped_text
+
 
 def find_substr(str1:str, substr:str):
     """Get string and substring, return 1 if substr in str == True, else 0"""
-    for index_1 in range(len(str1) - len(substr) - 1):
+    for index_1 in range(len(str1) - len(substr) + 1):
         for index_2 in range(len(substr)):
             if substr[index_2] != str1[index_1 + index_2]:
                 break
@@ -39,6 +54,8 @@ def WordSearch(length:int, s:str, subs:str) -> List[int]:
     i = 0
     while i < len(wrapped_text):
         while i < len(wrapped_text) and wrapped_text[i] != '\n':
+            if wrapped_text[i] == '\n':
+                continue
             tmp += wrapped_text[i]
             i += 1
         res.append(find_substr(tmp,subs))
