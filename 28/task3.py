@@ -1,18 +1,22 @@
 from math import sqrt, ceil
 
+
 def TheRabbitsFoot(s: str, encode: bool) -> str:
-    string_no_space = ''
+    """gets the original string s and either encrypts it (encode = true)
+    or decrypts it (encode = false),
+    only of course without the original spaces."""
+    string_no_space = ""
     for i in s:
-        if i == ' ':
+        if i == " ":
             continue
         string_no_space += i
-            
+
     side_length = ceil(sqrt(len(string_no_space)))
     matrix = []
     for i in range(side_length):
         row = []
         for j in range(side_length):
-            row.append('')
+            row.append("")
         matrix.append(row)
     text_index = 0
     for i in range(side_length):
@@ -29,14 +33,11 @@ def TheRabbitsFoot(s: str, encode: bool) -> str:
                 encoded_text += " "
         return encoded_text
     else:
+        words = s.split()
+        side_length = len(words)
         decoded_text = ""
-        for i in range(side_length):
+        for i in range(len(words[0])):
             for j in range(side_length):
-                if matrix[j][i]:
-                    decoded_text += matrix[j][i]
+                if i < len(words[j]):
+                    decoded_text += words[j][i]
         return decoded_text
-
-        
-
-print(TheRabbitsFoot('отдай мою кроличью лапку', True))
-print(TheRabbitsFoot('омоюу толл дюиа акчп йрьк', False))
