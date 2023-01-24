@@ -33,7 +33,16 @@ def TheRabbitsFoot(s: str, encode: bool) -> str:
                 encoded_text += " "
         return encoded_text
     else:
-        words = s.split()
+        words = []
+        word = ""
+        for i in s:
+            if i == " ":
+                words.append(word)
+                word = ""
+            else:
+                word += i
+        if word != "":
+            words.append(word)
         side_length = len(words)
         decoded_text = ""
         for i in range(len(words[0])):
