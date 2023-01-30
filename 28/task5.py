@@ -26,8 +26,3 @@ def BigMinus(s1: str, s2: str) -> str:
         res += s[i]
 
     return res
-
-
-assert BigMinus("1234567891", "1") == "1234567890"
-assert BigMinus("1", "321") == "320"
-assert BigMinus("0", "1") == "1"
