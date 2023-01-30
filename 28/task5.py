@@ -3,7 +3,7 @@ def BigMinus(s1: str, s2: str) -> str:
     correct -- a set of digits), and returns the absolute value (modulus)
     of the difference -- the first number s1 minus the second number s2,
     also in string format."""
-    if len(s1) < len(s2):
+    if len(s1) < len(s2) or s1 < s2:
         s1, s2 = s2, s1
     s1 = list(s1)
     s2 = list(s2)
@@ -26,3 +26,8 @@ def BigMinus(s1: str, s2: str) -> str:
         res += s[i]
 
     return res
+
+
+assert BigMinus("1234567891", "1") == "1234567890"
+assert BigMinus("1", "321") == "320"
+assert BigMinus("0", "1") == "1"
