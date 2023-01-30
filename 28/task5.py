@@ -1,4 +1,4 @@
-def BigMinus(s1, s2):
+def BigMinus(s1: str, s2: str) -> str:
     """receives two numbers in string format as input (the numbers are always
     correct -- a set of digits), and returns the absolute value (modulus)
     of the difference -- the first number s1 minus the second number s2,
