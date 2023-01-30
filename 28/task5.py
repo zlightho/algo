@@ -26,6 +26,3 @@ def BigMinus(s1, s2):
         res += s[i]
 
     return res
-
-
-print(BigMinus("321", "1"))
