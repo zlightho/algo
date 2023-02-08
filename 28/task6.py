@@ -18,8 +18,3 @@ def MassVote(N: int, Votes: List[int]) -> str:
             return f"minority winner {Votes.index(max_votes) + 1}"
         else:
             return "no winner"
-
-
-print(MassVote(5, [60, 10, 10, 15, 5]))
-print(MassVote(3, [10, 15, 10]))
-print(MassVote(4, [111, 111, 110, 110]))
