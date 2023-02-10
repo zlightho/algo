@@ -10,11 +10,12 @@ def MassVote(N: int, Votes: List[int]) -> str:
     max_votes = max(Votes)
     if max_votes / total_votes > 0.5:
         return f"majority winner {Votes.index(max_votes) + 1}"
-    elif max_votes * 2 > total_votes:
+    elif Votes.count(max_votes) == 1:
         return f"minority winner {Votes.index(max_votes) + 1}"
     else:
-        max_vote_count = Votes.count(max_votes)
-        if max_vote_count == 1:
-            return f"minority winner {Votes.index(max_votes) + 1}"
-        else:
-            return "no winner"
+        return "no winner"
+
+
+print(MassVote(5, [60, 10, 10, 15, 5]))
+print(MassVote(3, [10, 15, 10]))
+print(MassVote(4, [111, 111, 110, 110]))
