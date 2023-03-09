@@ -12,6 +12,9 @@ def Unmanned(L: int, N: int, track: List[List[int]]) -> int:
     the green color is shown."""
     time = 0  # Current time
     pos = 0  # Current position
+    if track[0][0] > L:
+        return L
+
     for i in range(N):
         # Time required to reach the next traffic light
         time_to_reach = track[i][0] - pos
