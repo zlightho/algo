@@ -1,4 +1,4 @@
-def line_analysis(line: str) -> bool:
+def LineAnalysis(line: str) -> bool:
     # Check if the line starts and ends with an asterisk
     if line[0] != "*" or line[-1] != "*":
         return False
