@@ -3,8 +3,10 @@ from typing import List
 
 def MisterRobot(N:int, data: List[int])->bool:
     """
-    This function checks if it is possible to sort a given list of integers from 1 to N using the following operation:
-    Take any three consecutive elements in the list, and rotate them to the left any number of times.
+    This function checks if it is possible to sort a given list of integers from 1 to N
+    using the following operation:
+    Take any three consecutive elements in the list, and rotate them to the left any number
+    of times.
     
     Args:
     N (int): The size of the list, and also the range of integers from 1 to N (inclusive).
