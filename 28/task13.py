@@ -16,7 +16,7 @@ def ShopOLAP(N: int, items: List[str]) -> dict:
         else:
             result_dict[key] = value
     sorted_result_list = sorted(
-        result_dict.items(), key=lambda x: x[1], reverse=True
+        result_dict.items(), key=lambda x: (-x[1], x[0])
     )
     formatted_result = [f"{key} {value}" for key, value in sorted_result_list]
     return formatted_result
