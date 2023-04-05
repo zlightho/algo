@@ -32,18 +32,21 @@ def SherlockValidString(s: str) -> bool:
             letter_freq[letter] = 1
 
     freq_values = list(set(letter_freq.values()))
-
+    
     if len(freq_values) == 1:
         return True
 
-    if len(freq_values) == 2:
-        min_freq, max_freq = sorted(freq_values)
-        freq_diff = max_freq - min_freq
+    if len(freq_values) != 2:
+        return False
 
-        if min_freq == 1 and list(letter_freq.values()).count(min_freq) == 1:
-            return True
+    min_freq, max_freq = sorted(freq_values)
+    freq_diff = max_freq - min_freq
 
-        if freq_diff == 1 and list(letter_freq.values()).count(max_freq) == 1:
-            return True
+    return (min_freq == 1 and list(letter_freq.values()).count(min_freq) == 1) or (freq_diff == 1 and list(letter_freq.values()).count(max_freq) == 1)
 
-    return False
+print(SherlockValidString('xyz'))
+print(SherlockValidString('xyzaa'))
+print(SherlockValidString('xxyyz'))
+print(SherlockValidString('xyzzz'))
+print(SherlockValidString('xxyyza'))
+print(SherlockValidString('xxyyzabc'))
