@@ -43,10 +43,3 @@ def SherlockValidString(s: str) -> bool:
     freq_diff = max_freq - min_freq
 
     return (min_freq == 1 and list(letter_freq.values()).count(min_freq) == 1) or (freq_diff == 1 and list(letter_freq.values()).count(max_freq) == 1)
-
-print(SherlockValidString('xyz'))
-print(SherlockValidString('xyzaa'))
-print(SherlockValidString('xxyyz'))
-print(SherlockValidString('xyzzz'))
-print(SherlockValidString('xxyyza'))
-print(SherlockValidString('xxyyzabc'))
