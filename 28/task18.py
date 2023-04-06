@@ -25,22 +25,21 @@ def MatrixTurn(Matrix: List[str], M: int, N: int, T: int) -> None:
         col_len = N - 2 * layer - 1
         layer_elements = 2 * (row_len + col_len)
         steps = T % layer_elements
-
         for _ in range(steps):
-            temp = matrix[layer][layer]            
-            # Rotate top row
-            for col in range(layer, N - layer - 1):
-                matrix[layer][col] = matrix[layer][col + 1]
-            # Rotate right column
-            for row in range(layer, M - layer - 1):
-                matrix[row][N - layer - 1] = matrix[row + 1][N - layer - 1]
-            # Rotate bottom row
-            for col in range(N - layer - 1, layer, -1):
-                matrix[M - layer - 1][col] = matrix[M - layer - 1][col - 1]
+            temp = matrix[layer][layer]
             # Rotate left column
+            for row in range(layer, M - layer - 1):
+                matrix[row][layer] = matrix[row + 1][layer]
+            # Rotate bottom row
+            for col in range(layer, N - layer - 1):
+                matrix[M - layer - 1][col] = matrix[M - layer - 1][col + 1]
+            # Rotate right column
             for row in range(M - layer - 1, layer, -1):
-                matrix[row][layer] = matrix[row - 1][layer]
-            matrix[layer + 1][layer] = temp
+                matrix[row][N - layer - 1] = matrix[row - 1][N - layer - 1]
+            # Rotate top row
+            for col in range(N - layer - 1, layer + 1, -1):
+                matrix[layer][col] = matrix[layer][col - 1]
+            matrix[layer][layer + 1] = temp
     # Update the original Matrix
     for i in range(M):
         Matrix[i] = "".join(matrix[i])
