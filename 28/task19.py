@@ -17,7 +17,7 @@ def transform(arr: List[int]) -> List[int]:
     result = []
     n = len(arr)
     for i in range(n):
-        for j in range(n - i - 1):
+        for j in range(n - i):
             k = i + j
             result.append(max(arr[j:k+1]))
     return result
