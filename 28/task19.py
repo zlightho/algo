@@ -36,7 +36,13 @@ def TransformTransform(A: List[int], N: int) -> bool:
     3. Calculate the key as the sum of all elements in the second transformation result.
     4. Check if the key is even and return True if it is, otherwise return False.
     """
+    B = []
+    summ = 0
+    res = False
     B = transform(A)
     B = transform(B)
-    key = sum(B)
-    return key % 2 == 0
+    for i in range(len(B)):
+        summ = summ + B[i]
+    if summ % 2 == 0:
+        res = True
+    return res
