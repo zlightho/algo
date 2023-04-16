@@ -30,7 +30,7 @@ def Football(F: List[int], N: int) -> bool:
         True
     """
     if F == sorted(F):
-        return True
+        return False
 
     # rule1
     for i in range(N):
